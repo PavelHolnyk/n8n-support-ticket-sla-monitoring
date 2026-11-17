@@ -1,28 +1,50 @@
-# Automated Ticket Routing and Response-Time Monitoring
+# AI Ticket Routing & SLA Monitoring for an Online Store
 
-Portfolio project by Pavlo Holnyk, based on the HouseBox online-store scenario.
+**n8n · OpenAI · Gmail · Google Sheets · Slack**
 
-## Overview
+Automatic email triage, ticket assignment and three-level escalation for the HouseBox online-store scenario.
 
-An n8n support automation for AI email triage, ticket assignment, notifications and monitoring the first meaningful response.
+## Problem
 
-## Workflow
+Customer requests required manual reading, categorization, assignment and deadline tracking. A shared inbox made it difficult to prioritize urgent issues and keep a clear view of overdue tickets. A generic acknowledgement did not count as a meaningful first response.
 
-Gmail -> AI classification -> spam check -> Google Sheets ticket log -> Slack notification to the owner.
+## Solution
 
-A separate scheduled branch checks open tickets every five minutes and applies L0 owner reminders, L1 team-lead notifications and L2 escalation emails to the business owner.
+**Track 1 — Ticket intake**
 
-Classification includes category, P1-P4 priority, owner, SLA, summary, reasoning and sentiment. Categories cover support, returns, billing, sales and spam.
+Gmail → AI classification → category / priority / owner / SLA / summary / sentiment → spam check → Google Sheets ticket log → Slack notification.
 
-## Stack
+**Track 2 — SLA monitoring**
 
-n8n, OpenAI API, Gmail API, Google Sheets API, Slack API, Structured Output Parser, JSON Schema and JavaScript expressions.
+A scheduled watcher checks open tickets every five minutes and sends escalating alerts.
 
-## Demo and case study
+| Level | Action |
+| --- | --- |
+| L0 | Reminder to the ticket owner |
+| L1 | Slack notification to the support team lead |
+| L2 | Email to the business owner |
 
-- [Case study in Notion](https://tangy-whitefish-6d0.notion.site/248c12839d0682fbb99c01ad2bafa261)
-- [Video demo](https://youtu.be/jhmWyUoOIms)
+Categories: support, returns, billing, sales and spam.
 
-## Repository contents
+## Results
 
-Project documentation only. Workflow exports and source files have not been added. Ticket volume and time-saving estimates are not presented as independently verified results.
+- **Faster routing:** Gmail is checked every **1 minute**, so eligible tickets can be classified and assigned in the next trigger cycle.
+- **SLA control:** open tickets are checked every **5 minutes**. First-response targets are **P1: 30 min · P2: 60 min · P3: 120 min · P4: 480 min**.
+- **Less manual triage:** classification, owner assignment, ticket logging and repeated deadline checks are handled by the workflow.
+- **Capacity planning:** the case is designed around approximately **900 tickets per month**.
+- **Estimated time savings:** at that assumed volume, the Notion case estimates **45–52 manager hours per month**, approximately **6–7 working days**. This is a scenario estimate, not a measured production result.
+
+## Tech Stack
+
+n8n, OpenAI API, Gmail API, Google Sheets API, Slack API, Structured Output Parser, JSON Schema, JavaScript expressions.
+
+## Demo & Case Study
+
+- [Watch the demo](https://youtu.be/jhmWyUoOIms)
+- [Read the full Notion case](https://tangy-whitefish-6d0.notion.site/248c12839d0682fbb99c01ad2bafa261)
+
+## Author
+
+**Pavlo Holnyk — AI Automation & AI Agents**
+
+[Portfolio](https://tangy-whitefish-6d0.notion.site/408c12839d06816f9e61ff1aa7392587) · [LinkedIn](https://www.linkedin.com/in/pavlo-holnyk/) · [Upwork](https://www.upwork.com/freelancers/~011ee82fd5725aa92e)
