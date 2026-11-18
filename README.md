@@ -26,6 +26,10 @@ A scheduled watcher checks open tickets every five minutes and sends escalating 
 
 Categories: support, returns, billing, sales and spam.
 
+## Workflow
+
+[![n8n workflow](workflow.png)](workflow.png)
+
 ## Results
 
 - **Faster routing:** Gmail is checked every **1 minute**, so eligible tickets can be classified and assigned in the next trigger cycle.
@@ -48,3 +52,4 @@ n8n, OpenAI API, Gmail API, Google Sheets API, Slack API, Structured Output Pars
 **Pavlo Holnyk — AI Automation & AI Agents**
 
 [Portfolio](https://tangy-whitefish-6d0.notion.site/408c12839d06816f9e61ff1aa7392587) · [LinkedIn](https://www.linkedin.com/in/pavlo-holnyk/) · [Upwork](https://www.upwork.com/freelancers/~011ee82fd5725aa92e)
+
